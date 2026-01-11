@@ -16,7 +16,7 @@ pipeline {
         stage('Build & Test') {
             steps {
                 dir('miniProjetDevOps') {
-                    bat 'mvn clean package'
+                    sh 'mvn clean package'
                 }
             }
         }
