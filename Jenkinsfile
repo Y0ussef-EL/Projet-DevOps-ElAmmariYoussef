@@ -20,14 +20,27 @@ pipeline {
                 }
             }
         }
+        stage('Archive') {
+            steps {
+                archiveArtifacts artifacts: 'miniProjetDevOps/target/*.jar', allowEmptyArchive: false
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh 'echo "Application déployée avec succès sur le serveur de production (simulé)"'
+            }
+        }
     }
     
     post {
+        always {
+            echo 'Pipeline terminé.'
+        }
         success {
             echo 'Le projet a été compilé avec succès !'
         }
         failure {
-            echo 'Le build a échoué.'
+            echo 'Le build ou les tests ont échoué.'
         }
     }
 }
