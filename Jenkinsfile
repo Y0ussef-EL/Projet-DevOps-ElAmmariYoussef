@@ -37,10 +37,10 @@ pipeline {
             echo 'Pipeline terminé.'
         }
         success {
-            echo 'Le projet a été compilé avec succès !'
+            slackSend channel: '#all-projet-devops-elammariyoussef', color: 'good', message: "Succès du Pipeline: ${env.JOB_NAME} [Build #${env.BUILD_NUMBER}]"
         }
         failure {
-            echo 'Le build ou les tests ont échoué.'
+            slackSend channel: '#all-projet-devops-elammariyoussef', color: 'danger', message: "Échec du Pipeline: ${env.JOB_NAME} [Build #${env.BUILD_NUMBER}]"
         }
     }
 }
