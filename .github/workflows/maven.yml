@@ -21,5 +21,5 @@ jobs:
         cache: maven
 
     - name: Build with Maven
-      working-directory: ./miniProjetDevops
+      working-directory: ./miniProjetDevOps
       run: mvn -B package
